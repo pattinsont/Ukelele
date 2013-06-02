@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if ! (/home/vagrant/bin/lein version 2> /dev/null | grep -q 'Leiningen'); then
+  echo 'Installing Leiningen'
+  mkdir -p /home/vagrant/bin
+  sed '$ a\
+  export PATH=/home/vagrant/bin:$PATH' /home/vagrant/.bashrc >/dev/null 2>&1
+  wget -O /home/vagrant/bin/lein https://raw.github.com/technomancy/leiningen/preview/bin/lein 2>&1
+  chmod +x ~/bin/lein
+  /home/vagrant/bin/lein self-install >/dev/null 2>&1
+fi
+
+if /home/vagrant/bin/lein version | grep -q 'Leiningen'; then
+    echo 'Leiningen installed successfully'
+    else echo 'Leiningen install failed - rerun script'
+fi
