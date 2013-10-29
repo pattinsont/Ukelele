@@ -8,7 +8,7 @@
   auto-complete
   clojure-mode
   clojure-test-mode
-  nrepl
+  cider
   ac-nrepl
   paredit
   rainbow-delimiters
@@ -48,11 +48,9 @@
 ;; clojure-mode
 (global-set-key [f9] 'nrepl-jack-in)
 
-;; nrepl
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(setq nrepl-popup-stacktraces nil)
-(add-to-list 'same-window-buffer-names "*nrepl*")
-(add-hook 'nrepl-mode-hook 'paredit-mode)
+;; cider
+(require 'cider)
+(setq nrepl-hide-special-buffers t)
 
 ;; Auto complete
 (require 'auto-complete-config)
