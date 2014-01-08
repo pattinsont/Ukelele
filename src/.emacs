@@ -46,7 +46,7 @@
 (global-set-key [f7] 'paredit-mode)
 
 ;; clojure-mode
-(global-set-key [f9] 'nrepl-jack-in)
+(global-set-key [f9] 'cider-jack-in)
 
 ;; cider
 (require 'cider)
